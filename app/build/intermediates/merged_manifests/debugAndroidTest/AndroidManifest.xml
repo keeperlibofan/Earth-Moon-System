@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bn.Sample7_5.test">
+    package="com.bn.EarthMoonDemo.test">
 
     <uses-sdk android:minSdkVersion="18" android:targetSdkVersion="21" />
 
@@ -9,8 +9,8 @@
     </application>
 
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="com.bn.Sample7_5"
+                     android:targetPackage="com.bn.EarthMoonDemo"
                      android:handleProfiling="false"
                      android:functionalTest="false"
-                     android:label="Tests for com.bn.Sample7_5"/>
+                     android:label="Tests for com.bn.EarthMoonDemo"/>
 </manifest>

@@ -8,7 +8,7 @@ INJECTED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/Androi
 INJECTED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:2:1-18:12
 INJECTED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:2:1-18:12
 	package
-		ADDED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:4:33-59
+		ADDED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:4:33-63
 		INJECTED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -43,12 +43,12 @@ ADDED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidMa
 		ADDED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:8:9-38
 	android:allowBackup
 		ADDED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:7:9-35
-activity#com.bn.Sample7_5.MyActivity
+activity#com.bn.EarthMoonDemo.MyActivity
 ADDED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:9:9-15:20
 	android:label
 		ADDED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:10:19-51
 	android:name
-		ADDED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:9:19-61
+		ADDED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:9:19-65
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:11:13-14:29
 action#android.intent.action.MAIN

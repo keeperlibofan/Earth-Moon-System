@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.bn.Sample7_5"
+        applicationId "com.bn.EarthMoonDemo"
         minSdkVersion 18
         targetSdkVersion 21
     }
