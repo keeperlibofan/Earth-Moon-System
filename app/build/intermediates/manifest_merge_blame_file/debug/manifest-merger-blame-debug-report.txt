@@ -1,0 +1,43 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.bn.Sample7_5"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:5:5-56
+8        android:minSdkVersion="18"
+8-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:5:5-56
+9        android:targetSdkVersion="21" />
+9-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:5:15-44
+10
+11    <application
+11-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:6:5-16:19
+12        android:allowBackup="true"
+12-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:7:9-35
+13        android:debuggable="true"
+14        android:icon="@drawable/icon"
+14-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:8:9-38
+15        android:label="@string/app_name"
+15-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:8:39-71
+16        android:testOnly="true" >
+17        <activity
+17-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:9:9-15:20
+18            android:name="com.bn.Sample7_5.MyActivity"
+18-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:9:19-61
+19            android:label="@string/app_name" >
+19-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:10:19-51
+20            <intent-filter>
+20-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:11:13-14:29
+21                <action android:name="android.intent.action.MAIN" />
+21-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:12:17-69
+21-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:12:25-66
+22
+23                <category android:name="android.intent.category.LAUNCHER" />
+23-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:13:17-77
+23-->/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/AndroidManifest.xml:13:27-74
+24            </intent-filter>
+25        </activity>
+26    </application>
+27
+28</manifest>
