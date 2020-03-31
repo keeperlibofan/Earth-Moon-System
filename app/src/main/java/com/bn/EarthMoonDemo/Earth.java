@@ -1,5 +1,5 @@
-package com.bn.Sample7_5;
-import static com.bn.Sample7_5.ShaderUtil.createProgram;
+package com.bn.EarthMoonDemo;
+import static com.bn.EarthMoonDemo.ShaderUtil.createProgram;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

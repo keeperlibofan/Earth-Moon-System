@@ -1,4 +1,4 @@
-package com.bn.Sample7_5;
+package com.bn.EarthMoonDemo;
 import java.io.IOException;
 import java.io.InputStream;
 import android.opengl.GLSurfaceView;
@@ -8,13 +8,13 @@ import android.opengl.GLES30;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import com.bn.Sample7_5.R;
+import com.bn.EarthMoonDemo.R;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import static com.bn.Sample7_5.Constant.*;
+import static com.bn.EarthMoonDemo.Constant.*;
 
 @SuppressLint("ClickableViewAccessibility")
 class MySurfaceView extends GLSurfaceView 

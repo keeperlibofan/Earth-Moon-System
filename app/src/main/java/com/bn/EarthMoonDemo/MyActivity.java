@@ -1,4 +1,4 @@
-package com.bn.Sample7_5;
+package com.bn.EarthMoonDemo;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;

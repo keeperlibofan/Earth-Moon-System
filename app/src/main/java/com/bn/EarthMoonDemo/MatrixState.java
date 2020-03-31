@@ -1,4 +1,4 @@
-package com.bn.Sample7_5;
+package com.bn.EarthMoonDemo;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
