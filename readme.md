@@ -16,6 +16,11 @@ todo
 - OpenGl: ES 3.x
 - Shader Language: GLSL ES 
 
+## 运行环境
+- Core: Android 5.0
+- OS: Harmony OS
+- Type: HUAWEI P20
+
 ---
  
 ## 渲染效果图
