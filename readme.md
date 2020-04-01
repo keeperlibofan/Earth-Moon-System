@@ -14,7 +14,7 @@ todo
 - Android Studio 4.0
 - Java: v8
 - OpenGl: ES 3.x
-- Shader Language: GLSL ES 
+- Shader Language: GLSL ES
 
 ## 运行环境
 - Core: Android 5.0
