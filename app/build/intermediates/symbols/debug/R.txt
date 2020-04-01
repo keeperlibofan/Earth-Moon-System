@@ -2,4 +2,8 @@ int drawable earth 0x7f010000
 int drawable earthn 0x7f010001
 int drawable icon 0x7f010002
 int drawable moon 0x7f010003
-int string app_name 0x7f020000
+int raw earth 0x7f020000
+int raw earthn 0x7f020001
+int raw etc1tool 0x7f020002
+int raw moon 0x7f020003
+int string app_name 0x7f030000

@@ -1,14 +1,14 @@
 package com.bn.EarthMoonDemo;
 import java.io.IOException;
 import java.io.InputStream;
+
+import android.opengl.ETC1Util;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLUtils;
 import android.view.MotionEvent;
 import android.opengl.GLES30;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-
-import com.bn.EarthMoonDemo.R;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -130,9 +130,9 @@ class MySurfaceView extends GLSurfaceView
             //打开背面剪裁
             GLES30.glEnable(GLES30.GL_CULL_FACE);   // 背部裁剪
             //初始化纹理
-            textureIdEarth=initTexture(R.drawable.earth);
-            textureIdEarthNight=initTexture(R.drawable.earthn);
-            textureIdMoon=initTexture(R.drawable.moon);            
+            textureIdEarth = initTexture(R.raw.earth);
+            textureIdEarthNight = initTexture(R.raw.earthn);
+            textureIdMoon = initTexture(R.raw.moon);
             //设置太阳灯光的初始位置
             MatrixState.setLightLocationSun(100,5,0);       
             
@@ -175,15 +175,15 @@ class MySurfaceView extends GLSurfaceView
         }
     }
 	
-	public int initTexture(int drawableId)//textureId
+	public int initTexture(int rawId)//textureId
 	{
 		//生成纹理ID
 		int[] textures = new int[1];
 		GLES30.glGenTextures
 		(
-				1,          //产生的纹理id的数量
+				1,       //产生的纹理id的数量
 				textures,   //纹理id的数组
-				0           //偏移量
+				0    //偏移量
 		);    
 		int textureId=textures[0];    
 		GLES30.glBindTexture(GLES30.GL_TEXTURE_2D, textureId);
@@ -193,35 +193,23 @@ class MySurfaceView extends GLSurfaceView
 		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D, GLES30.GL_TEXTURE_WRAP_T,GLES30.GL_CLAMP_TO_EDGE); // 钳位到边缘
         
         //通过输入流加载图片===============begin===================
-        InputStream is = this.getResources().openRawResource(drawableId);
-        Bitmap bitmapTmp;
-        try 
-        {
-        	bitmapTmp = BitmapFactory.decodeStream(is);
-        } 
-        finally 
-        {
-            try 
-            {
-                is.close();
-            } 
-            catch(IOException e) 
-            {
-                e.printStackTrace();
-            }
+        InputStream is = this.getResources().openRawResource(rawId);
+        try {
+            ETC1Util.loadTexture//将纹理数据加载进纹理缓冲
+            (
+                    GLES30.GL_TEXTURE_2D, //纹理类型
+                    0, //纹理层次
+                    0,//纹理边框尺寸
+                    GLES30.GL_RGB,//色彩通道格式
+                    GLES30.GL_UNSIGNED_BYTE, //每像素数据数
+                    is//压缩纹理数据输入流
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {is.close();} catch(IOException e){e.printStackTrace();}
         }
-        //通过输入流加载图片===============end=====================  
-        
-        //实际加载纹理
-        GLUtils.texImage2D
-        (
-        		GLES30.GL_TEXTURE_2D,   //纹理类型
-        		0, 					  //纹理的层次，0表示基本图像层，可以理解为直接贴图
-        		bitmapTmp, 			  //纹理图像
-        		0					  //纹理边框尺寸
-        );
-        bitmapTmp.recycle(); 		  //纹理加载成功后释放图片
-        
+        //通过输入流加载图片===============end=====================
         return textureId;
 	}
 }

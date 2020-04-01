@@ -14,7 +14,13 @@ public final class R {
     public static final int icon=0x7f010002;
     public static final int moon=0x7f010003;
   }
+  public static final class raw {
+    public static final int earth=0x7f020000;
+    public static final int earthn=0x7f020001;
+    public static final int etc1tool=0x7f020002;
+    public static final int moon=0x7f020003;
+  }
   public static final class string {
-    public static final int app_name=0x7f020000;
+    public static final int app_name=0x7f030000;
   }
 }

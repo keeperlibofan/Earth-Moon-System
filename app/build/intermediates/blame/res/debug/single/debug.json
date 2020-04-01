@@ -16,11 +16,27 @@
         "source": "/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/res/drawable-hdpi/earthn.png"
     },
     {
+        "merged": "/Users/seadream/Desktop/Repository/UpSample7_5/app/build/intermediates/res/merged/debug/raw_earth.pkm.flat",
+        "source": "/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/res/raw/earth.pkm"
+    },
+    {
         "merged": "/Users/seadream/Desktop/Repository/UpSample7_5/app/build/intermediates/res/merged/debug/drawable-hdpi_earth.png.flat",
         "source": "/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/res/drawable-hdpi/earth.png"
     },
     {
         "merged": "/Users/seadream/Desktop/Repository/UpSample7_5/app/build/intermediates/res/merged/debug/drawable-ldpi_icon.png.flat",
         "source": "/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/res/drawable-ldpi/icon.png"
+    },
+    {
+        "merged": "/Users/seadream/Desktop/Repository/UpSample7_5/app/build/intermediates/res/merged/debug/raw_earthn.pkm.flat",
+        "source": "/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/res/raw/earthn.pkm"
+    },
+    {
+        "merged": "/Users/seadream/Desktop/Repository/UpSample7_5/app/build/intermediates/res/merged/debug/raw_moon.pkm.flat",
+        "source": "/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/res/raw/moon.pkm"
+    },
+    {
+        "merged": "/Users/seadream/Desktop/Repository/UpSample7_5/app/build/intermediates/res/merged/debug/raw_etc1tool.md.flat",
+        "source": "/Users/seadream/Desktop/Repository/UpSample7_5/app/src/main/res/raw/etc1tool.md"
     }
 ]
