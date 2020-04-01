@@ -12,9 +12,9 @@ todo
 
 ## 开发环境
 - OS: darwin x64
-- Android Studio 4.0
+- IDEA: Android Studio 4.0
 - Java: v8
-- OpenGl: ES 3.x
+- OpenGl ES: 3.x
 - Shader Language: GLSL ES
 
 ## 运行环境
@@ -72,4 +72,5 @@ xxxx
 # 参考
 - [公式编写](https://juejin.im/post/5a6721bd518825733201c4a2)
 
-$$\int_a^b f(x)dx$$
+
+![测试图片样式](./image/test.png)
