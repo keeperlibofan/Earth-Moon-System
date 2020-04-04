@@ -2,7 +2,10 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/src/main/assets/earth.frag" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/moon.frag" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/moon.vert" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/assets/sky.frag" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/sky.vert" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/bn/EarthMoonDemo/Celestial.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/bn/EarthMoonDemo/Earth.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/bn/EarthMoonDemo/MatrixState.java" charset="GBK" />

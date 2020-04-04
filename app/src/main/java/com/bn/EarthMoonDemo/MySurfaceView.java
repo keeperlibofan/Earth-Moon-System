@@ -4,7 +4,6 @@ import java.io.InputStream;
 
 import android.opengl.ETC1Util;
 import android.opengl.GLSurfaceView;
-import android.opengl.GLUtils;
 import android.view.MotionEvent;
 import android.opengl.GLES30;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -12,8 +11,6 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import static com.bn.EarthMoonDemo.Constant.*;
 
 @SuppressLint("ClickableViewAccessibility")
