@@ -6,8 +6,8 @@ in vec4 vDiffuse;			//接收从顶点着色器过来散射光最终强度
 in vec4 vSpecular;			//接收从顶点着色器过来镜面反射光最终强度
 
 out vec4 fragColor;			//传递到渲染管线的片元颜色
-uniform sampler2D sTextureDay;	//白天纹理的内容数据
-uniform sampler2D sTextureNight;//黑夜纹理的内容数据
+uniform sampler2D sTextureDay;	//白天纹理的内容数据 对应采样器编号0 unitId 0
+uniform sampler2D sTextureNight;//黑夜纹理的内容数据 对应采样器编号0 unitId 1
 
 void main()                         
 {  //地球着色器的main方法
