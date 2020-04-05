@@ -127,9 +127,9 @@ class MySurfaceView extends GLSurfaceView
             //打开背面剪裁
             GLES30.glEnable(GLES30.GL_CULL_FACE);   // 背部裁剪
             //初始化纹理
-            textureIdEarth = initTexture(R.raw.earth);
-            textureIdEarthNight = initTexture(R.raw.earthn);
-            textureIdMoon = initTexture(R.raw.moon);
+            textureIdEarth = initTexture(R.raw.earth, samplers[0], 0);
+            textureIdEarthNight = initTexture(R.raw.earthn, samplers[0], 1);
+            textureIdMoon = initTexture(R.raw.moon, samplers[0], 0); // 加载月球纹理
             //设置太阳灯光的初始位置
             MatrixState.setLightLocationSun(100,5,0);       
             
@@ -168,11 +168,22 @@ class MySurfaceView extends GLSurfaceView
             //打开深度检测
             GLES30.glEnable(GLES30.GL_DEPTH_TEST);
             //初始化变换矩阵
-            MatrixState.setInitStack();  
+            MatrixState.setInitStack();
+            initSamplers();
+
         }
     }
+
+    int[] samplers = new int[1];
+    public void initSamplers() {
+        GLES30.glGenSamplers(1, samplers, 0);
+        GLES30.glSamplerParameterf(samplers[0], GLES30.GL_TEXTURE_MIN_FILTER,GLES30.GL_NEAREST);
+        GLES30.glSamplerParameterf(samplers[0], GLES30.GL_TEXTURE_MAG_FILTER,GLES30.GL_LINEAR);
+        GLES30.glSamplerParameterf(samplers[0], GLES30.GL_TEXTURE_WRAP_S,GLES30.GL_CLAMP_TO_EDGE);
+        GLES30.glSamplerParameterf(samplers[0], GLES30.GL_TEXTURE_WRAP_T,GLES30.GL_CLAMP_TO_EDGE);
+    }
 	
-	public int initTexture(int rawId)//textureId
+	public int initTexture(int rawId, int samplerId, int unitId) //textureId
 	{
 		//生成纹理ID
 		int[] textures = new int[1];
@@ -184,12 +195,13 @@ class MySurfaceView extends GLSurfaceView
 		);    
 		int textureId=textures[0];    
 		GLES30.glBindTexture(GLES30.GL_TEXTURE_2D, textureId);
-		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D, GLES30.GL_TEXTURE_MIN_FILTER,GLES30.GL_NEAREST);
-		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D,GLES30.GL_TEXTURE_MAG_FILTER,GLES30.GL_LINEAR);
-		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D, GLES30.GL_TEXTURE_WRAP_S,GLES30.GL_CLAMP_TO_EDGE); // 钳位到边缘
-		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D, GLES30.GL_TEXTURE_WRAP_T,GLES30.GL_CLAMP_TO_EDGE); // 钳位到边缘
-        
-        //通过输入流加载图片===============begin===================
+//		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D, GLES30.GL_TEXTURE_MIN_FILTER,GLES30.GL_NEAREST);
+//		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D,GLES30.GL_TEXTURE_MAG_FILTER,GLES30.GL_LINEAR);
+//		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D, GLES30.GL_TEXTURE_WRAP_S,GLES30.GL_CLAMP_TO_EDGE); // 钳位到边缘
+//		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D, GLES30.GL_TEXTURE_WRAP_T,GLES30.GL_CLAMP_TO_EDGE); // 钳位到边缘
+        GLES30.glBindSampler(unitId, samplerId);//绑定纹理单元与sampler
+
+        //通过输入流加载图片, 图片通过etc1压缩===============begin===================
         InputStream is = this.getResources().openRawResource(rawId);
         try {
             ETC1Util.loadTexture//将纹理数据加载进纹理缓冲
