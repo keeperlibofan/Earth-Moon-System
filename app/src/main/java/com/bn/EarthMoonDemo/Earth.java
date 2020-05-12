@@ -93,7 +93,7 @@ public class Earth  {
         //加载片元着色器的脚本内容
         mFragmentShader=ShaderUtil.loadFromAssetsFile("earth.frag", mv.getResources());
         //基于顶点着色器与片元着色器创建程序
-        ShaderUtil.checkGlError("==ss==");      
+        ShaderUtil.checkGlError("==ss==");
         mProgram = createProgram(mVertexShader, mFragmentShader);
         //获取程序中顶点位置属性引用
         maPositionHandle = GLES30.glGetAttribLocation(mProgram, "aPosition");

@@ -30,7 +30,7 @@ public class ShaderUtil
                 Log.e("ES30_ERROR", GLES30.glGetShaderInfoLog(shader));
                 GLES30.glDeleteShader(shader);
                 shader = 0;      
-            }  
+            }
         }
         return shader;
     }

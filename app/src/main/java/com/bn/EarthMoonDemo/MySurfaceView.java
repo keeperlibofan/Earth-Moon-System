@@ -24,7 +24,8 @@ class MySurfaceView extends GLSurfaceView
     
     int textureIdEarth;//系统分配的地球纹理id
     int textureIdEarthNight;//系统分配的地球夜晚纹理id
-    int textureIdMoon;//系统分配的月球纹理id    
+    int textureIdMoon;//系统分配的月球纹理id
+    int textureIdCloud;//云层纹理id
 
     float yAngle=0;//太阳灯光绕y轴旋转的角度
     float xAngle=0;//摄像机绕X轴旋转的角度
@@ -82,7 +83,8 @@ class MySurfaceView extends GLSurfaceView
     	Moon moon;//月球
     	Celestial cSmall;//小星星天球
     	Celestial cBig;//大星星天球
-    	
+        Cloud cloud;//云层
+
         public void onDrawFrame(GL10 gl) 
         { 
         	//清除深度缓冲与颜色缓冲
@@ -93,7 +95,16 @@ class MySurfaceView extends GLSurfaceView
             //地球自转
             MatrixState.rotate(eAngle, 0, 1, 0);
         	//绘制地球
-            earth.drawSelf(textureIdEarth,textureIdEarthNight);     
+            earth.drawSelf(textureIdEarth,textureIdEarthNight);
+
+            //开启混合
+            GLES30.glEnable(GLES30.GL_BLEND);
+            //设置混合因子
+            GLES30.glBlendFunc(GLES30.GL_SRC_ALPHA, GLES30.GL_ONE_MINUS_SRC_ALPHA);
+            cloud.drawSelf(textureIdCloud);//绘制云层
+            //关闭混合
+            GLES30.glDisable(GLES30.GL_BLEND);
+
             //推坐标系到月球位置            
             MatrixState.translate(2f, 0, 0);  
             //月球自转     
@@ -102,7 +113,8 @@ class MySurfaceView extends GLSurfaceView
             moon.drawSelf(textureIdMoon);
             //恢复现场
             MatrixState.popMatrix();
-            
+
+
             //保护现场
             MatrixState.pushMatrix();  
             //星空天球旋转
@@ -127,9 +139,11 @@ class MySurfaceView extends GLSurfaceView
             //打开背面剪裁
             GLES30.glEnable(GLES30.GL_CULL_FACE);   // 背部裁剪
             //初始化纹理
-            textureIdEarth = initTexture(R.raw.earth, samplers[0], 0);
-            textureIdEarthNight = initTexture(R.raw.earthn, samplers[0], 1);
-            textureIdMoon = initTexture(R.raw.moon, samplers[0], 0); // 加载月球纹理
+            textureIdEarth = initRawTexture(R.raw.earth, samplers[0], 0);
+            textureIdEarthNight = initRawTexture(R.raw.earthn, samplers[0], 1);
+            textureIdMoon = initRawTexture(R.raw.moon, samplers[0], 0); // 加载月球纹理
+            textureIdCloud = initRawTexture(R.raw.cloud, samplers[0], 0); // 加载云层纹理
+
             //设置太阳灯光的初始位置
             MatrixState.setLightLocationSun(100,5,0);       
             
@@ -158,8 +172,9 @@ class MySurfaceView extends GLSurfaceView
             //设置屏幕背景色RGBA
             GLES30.glClearColor(0.0f,0.0f,0.0f, 1.0f);  
             //创建地球对象 
-            earth=new Earth(MySurfaceView.this,2.0f);
-            //创建月球对象 
+            earth = new Earth(MySurfaceView.this,2.0f);
+            cloud = new Cloud(MySurfaceView.this,2.02f); // 高一点点的贴图
+            //创建月球对象
             moon=new Moon(MySurfaceView.this,1.0f);
             //创建小星星天球对象
             cSmall=new Celestial(1,0,1000,MySurfaceView.this);
@@ -183,7 +198,7 @@ class MySurfaceView extends GLSurfaceView
         GLES30.glSamplerParameterf(samplers[0], GLES30.GL_TEXTURE_WRAP_T,GLES30.GL_CLAMP_TO_EDGE);
     }
 	
-	public int initTexture(int rawId, int samplerId, int unitId) //textureId
+	public int initRawTexture(int rawId, int samplerId, int unitId) //textureId
 	{
 		//生成纹理ID
 		int[] textures = new int[1];
@@ -195,10 +210,6 @@ class MySurfaceView extends GLSurfaceView
 		);    
 		int textureId=textures[0];    
 		GLES30.glBindTexture(GLES30.GL_TEXTURE_2D, textureId);
-//		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D, GLES30.GL_TEXTURE_MIN_FILTER,GLES30.GL_NEAREST);
-//		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D,GLES30.GL_TEXTURE_MAG_FILTER,GLES30.GL_LINEAR);
-//		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D, GLES30.GL_TEXTURE_WRAP_S,GLES30.GL_CLAMP_TO_EDGE); // 钳位到边缘
-//		GLES30.glTexParameterf(GLES30.GL_TEXTURE_2D, GLES30.GL_TEXTURE_WRAP_T,GLES30.GL_CLAMP_TO_EDGE); // 钳位到边缘
         GLES30.glBindSampler(unitId, samplerId);//绑定纹理单元与sampler
 
         //通过输入流加载图片, 图片通过etc1压缩===============begin===================

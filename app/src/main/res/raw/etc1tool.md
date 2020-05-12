@@ -21,5 +21,5 @@ Updating Homebrew...
 ## Usage
 
 ```bash
-etc1tool test.png -encode
+etc1tool test.png --encode
 ```
